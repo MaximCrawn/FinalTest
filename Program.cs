@@ -74,7 +74,7 @@ void PrintArray (string[] array, string [] ResultArray)
     }
     else
     {
-                for (int i = 0; i < array.Length-1; i++)
+        for (int i = 0; i < array.Length-1; i++)
         {
             System.Console.Write( array[i] + "," + " ");
         }
