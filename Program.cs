@@ -19,3 +19,73 @@
 
 
 
+
+
+string [] DataInput (int size, string [] array)
+{
+    for (int i = 0; i < size; i++)
+    {
+    System.Console.Write("Введите строку: ");
+    array[i] = Console.ReadLine();
+    }
+    return array; 
+}
+
+string [] SortingArray (string [] array)
+{ 
+    int ResultSize = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if(array[i].Length <= 3)
+        {
+            ResultSize++;
+        }
+    }
+    string [] ResultArray = new string [ResultSize];
+    int j = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if(array[i].Length <= 3)
+        {
+            ResultArray[j] = array[i];
+            j++;
+        }
+    }
+    
+    return ResultArray;
+}
+
+void PrintArray (string[] array, string [] ResultArray)
+{
+    if(ResultArray.Length != 0)
+    {
+        for (int i = 0; i < array.Length-1; i++)
+        {
+            System.Console.Write(array[i] + "," + " ");
+        }
+        System.Console.Write($"{array[array.Length-1]} -> ");
+        
+        for (int i = 0; i < ResultArray.Length-1; i++)
+        {
+            System.Console.Write(ResultArray[i]);
+        }
+        System.Console.Write(ResultArray[ResultArray.Length-1]);
+        System.Console.WriteLine();
+    }
+    else
+    {
+                for (int i = 0; i < array.Length-1; i++)
+        {
+            System.Console.Write( array[i] + "," + " ");
+        }
+        System.Console.Write($"{array[array.Length-1]} -> ");
+        System.Console.Write("[" + "]");
+
+    }
+}
+
+System.Console.Write("Сколько строк хотите ввести?: ");
+int size = Convert.ToInt32(Console.ReadLine());
+string [] array = new string [size];
+
+PrintArray(DataInput(size, array), SortingArray(array)); 
